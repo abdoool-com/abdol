@@ -10,7 +10,11 @@ export const getRouter = () => {
     context: { queryClient },
     scrollRestoration: true,
     defaultPreloadStaleTime: 0,
+    // Use Vite's base URL so the router works on GitHub Pages (/abdol/)
+    // and locally (/) without code changes.
+    basepath: import.meta.env.BASE_URL ?? "/",
   });
 
   return router;
 };
+
