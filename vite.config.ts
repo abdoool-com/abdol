@@ -12,4 +12,9 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  vite: {
+    // Base path for GitHub Pages — repo name is "abdol"
+    base: process.env.BASE_URL ?? "/",
+  },
 });
+
