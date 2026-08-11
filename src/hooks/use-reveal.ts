@@ -9,16 +9,13 @@ export function useReveal<T extends HTMLElement = HTMLDivElement>(delay = 0) {
     if (!el) return;
     const observer = new IntersectionObserver(
       (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            const timer = window.setTimeout(() => setVisible(true), delay);
-            observer.disconnect();
-            return () => window.clearTimeout(timer);
-          }
-        }
+        if (!entries.some((e) => e.isIntersecting)) return;
+        observer.disconnect();
+        window.setTimeout(() => setVisible(true), delay);
       },
       { threshold: 0.15 },
     );
+
     observer.observe(el);
     return () => observer.disconnect();
   }, [delay]);
