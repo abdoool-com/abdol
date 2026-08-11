@@ -37,6 +37,10 @@ function Index() {
       <main>
         <Hero />
         <Services />
+        <Portfolio />
+        <Process />
+        <Pricing />
+        <Testimonials />
         <VisitorCounter />
         <About />
         <TikTokBanner />
