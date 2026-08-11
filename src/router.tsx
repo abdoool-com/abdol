@@ -1,3 +1,4 @@
+
 import { QueryClient } from "@tanstack/react-query";
 import { createRouter } from "@tanstack/react-router";
 import { routeTree } from "./routeTree.gen";
@@ -7,11 +8,15 @@ export const getRouter = () => {
 
   const router = createRouter({
     routeTree,
-    context: { queryClient },
+    context: {
+      queryClient,
+    },
     scrollRestoration: true,
     defaultPreloadStaleTime: 0,
-    // Use Vite's base URL so the router works on GitHub Pages (/abdol/)
-    // and locally (/) without code changes.
+
+    // Vite provides:
+    // "/" locally
+    // "/abdol/" on GitHub Pages
     basepath: import.meta.env.BASE_URL ?? "/",
   });
 
