@@ -31,16 +31,17 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: lts/*
+          node-version: '24'
           cache: npm
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install --legacy-peer-deps
 
       - name: Build
         run: npm run build
         env:
           BASE_URL: /abdol/
+          NODE_ENV: production
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v4
@@ -48,7 +49,7 @@ jobs:
       - name: Upload build
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: ./.output/public
 
       - name: Deploy
         id: deployment
