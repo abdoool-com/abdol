@@ -78,7 +78,7 @@ export function Hero() {
           <img
             src={logo.url}
             alt="شعار اعلانات عبدول"
-            className="animate-float-soft relative w-56 drop-shadow-2xl sm:w-72 lg:w-80"
+            className="animate-float-soft relative w-56 mix-blend-multiply sm:w-72 lg:w-80"
           />
         </div>
       </div>

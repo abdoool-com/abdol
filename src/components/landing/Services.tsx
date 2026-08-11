@@ -30,7 +30,7 @@ export function Services() {
         <div className="mt-12 grid gap-5 md:grid-cols-4">
           {services.map((service, index) => (
             <Reveal key={service.title} delay={index * 90} className={service.span}>
-              <article className="bento-card group flex h-full flex-col items-center gap-4 p-6 text-center sm:p-8">
+              <article className="bento-card group flex h-full flex-col items-center justify-center gap-4 p-6 text-center sm:p-8">
                 <div className="relative flex items-center justify-center">
                   <span
                     aria-hidden
@@ -58,7 +58,7 @@ export function Services() {
                   href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-auto inline-flex items-center gap-2 rounded-full border border-gold/60 bg-secondary px-5 py-2 text-sm font-bold text-secondary-foreground transition-all duration-300 hover:-translate-y-0.5 hover:bg-gold hover:text-accent-foreground hover:shadow-[var(--shadow-gold)]"
+                  className="inline-flex items-center gap-2 rounded-full border border-gold/60 bg-secondary px-5 py-2 text-sm font-bold text-secondary-foreground transition-all duration-300 hover:-translate-y-0.5 hover:bg-gold hover:text-accent-foreground hover:shadow-[var(--shadow-gold)]"
                 >
                   للطلب عبر واتساب
                 </a>
