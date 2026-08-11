@@ -43,6 +43,53 @@ jobs:
           BASE_URL: /abdol/
           NODE_ENV: production
 
+      - name: Generate index.html for GitHub Pages
+        run: |
+          node << 'EOF'
+          const fs   = require('fs');
+          const path = require('path');
+
+          const assetsDir = '.output/public/assets';
+          const outDir    = '.output/public';
+          const base      = '/abdol';
+
+          const files  = fs.readdirSync(assetsDir);
+          const jsMain = files.find(f => f.startsWith('index') && f.endsWith('.js'));
+          const jsRoutes = files.find(f => f.startsWith('routes') && f.endsWith('.js'));
+          const css    = files.find(f => f.endsWith('.css'));
+
+          if (!jsMain || !css) {
+            console.error('Could not find built assets:', files);
+            process.exit(1);
+          }
+
+          const html = `<!DOCTYPE html>
+          <html lang="ar" dir="rtl">
+          <head>
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <title>إعلانات عبدول | حلول تسويقية تصنع الفرق</title>
+            <meta name="description" content="خدمات تسويقية متكاملة تساعد علامتك التجارية على النمو والوصول إلى عملائك بفعالية واحترافية." />
+            <meta property="og:title" content="إعلانات عبدول | حلول تسويقية تصنع الفرق" />
+            <meta property="og:type" content="website" />
+            ${jsRoutes ? `<link rel="modulepreload" href="${base}/assets/${jsRoutes}" />` : ''}
+            <link rel="modulepreload" href="${base}/assets/${jsMain}" />
+            <link rel="stylesheet" href="${base}/assets/${css}" />
+          </head>
+          <body>
+            <div id="root"></div>
+            <script type="module" src="${base}/assets/${jsMain}"></script>
+          </body>
+          </html>`;
+
+          fs.writeFileSync(path.join(outDir, 'index.html'), html.trim());
+          // GitHub Pages SPA fallback
+          fs.writeFileSync(path.join(outDir, '404.html'), html.trim());
+          console.log('✓ Generated index.html and 404.html');
+          console.log('  JS entry :', jsMain);
+          console.log('  CSS      :', css);
+          EOF
+
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v4
 
