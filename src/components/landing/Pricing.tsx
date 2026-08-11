@@ -1,4 +1,6 @@
 import { Reveal } from "./Reveal";
+import { SectionHeading } from "./SectionHeading";
+
 import { WHATSAPP_URL } from "./links";
 import { Check, Sparkles } from "lucide-react";
 
@@ -53,12 +55,12 @@ export function Pricing() {
   return (
     <section id="pricing" className="relative py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5">
-        <Reveal className="text-center">
-          <h2 className="font-display text-3xl font-black text-primary sm:text-4xl">باقات الأسعار</h2>
-          <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
-            اختر الباقة التي تناسب نشاطك وابدأ رحلتك التسويقية
-          </p>
-        </Reveal>
+        <SectionHeading
+          eyebrow="الباقات"
+          title="باقات الأسعار"
+          subtitle="اختر الباقة التي تناسب نشاطك وابدأ رحلتك التسويقية"
+        />
+
 
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           {plans.map((plan, index) => (

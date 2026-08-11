@@ -1,4 +1,6 @@
 import { Reveal } from "./Reveal";
+import { SectionHeading } from "./SectionHeading";
+
 import { WHATSAPP_URL } from "./links";
 import { Megaphone, Smartphone, Palette, TrendingUp, Video, FileText } from "lucide-react";
 
@@ -51,12 +53,12 @@ export function Portfolio() {
   return (
     <section id="portfolio" className="relative py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5">
-        <Reveal className="text-center">
-          <h2 className="font-display text-3xl font-black text-primary sm:text-4xl">أعمالنا</h2>
-          <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
-            نماذج من المشاريع والحملات التي نفذناها لعملائنا
-          </p>
-        </Reveal>
+        <SectionHeading
+          eyebrow="معرض الأعمال"
+          title="أعمالنا"
+          subtitle="نماذج من المشاريع والحملات التي نفذناها لعملائنا"
+        />
+
 
         <div className="mt-12 grid gap-5 md:grid-cols-4">
           {works.map((work, index) => {
