@@ -4,22 +4,52 @@ export function SectionHeading({
   eyebrow,
   title,
   subtitle,
+  align = "center",
 }: {
   eyebrow: string;
   title: string;
-  subtitle: string;
+  subtitle?: string;
+  align?: "center" | "right";
 }) {
+  const isCenter = align === "center";
+
   return (
-    <Reveal className="text-center">
-      <span className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-card/70 px-4 py-1.5 text-[11px] font-bold tracking-widest text-primary backdrop-blur">
-        <span className="h-1.5 w-1.5 rounded-full bg-gold" />
-        {eyebrow}
-      </span>
-      <h2 className="mt-4 font-display text-3xl font-black text-primary sm:text-4xl lg:text-[2.75rem]">
+    <Reveal className={isCenter ? "text-center" : "text-right"} dir="rtl">
+      {/* Eyebrow badge */}
+      <div className={`inline-flex items-center gap-2`}>
+        <span className="eyebrow-badge">
+          <span className="h-1.5 w-1.5 rounded-full" style={{ background: "var(--color-primary)" }} />
+          {eyebrow}
+        </span>
+      </div>
+
+      {/* Heading — fluid size */}
+      <h2
+        className="mt-3 font-bold sm:mt-4"
+        style={{
+          fontFamily: "IBM Plex Sans Arabic, Cairo, sans-serif",
+          color: "var(--color-foreground)",
+          fontSize: "clamp(1.75rem, 4vw, 2.5rem)",
+        }}
+      >
         {title}
       </h2>
-      <div className="hairline mx-auto mt-4 w-40" />
-      <p className="mx-auto mt-4 max-w-xl text-muted-foreground">{subtitle}</p>
+
+      {/* Green accent line */}
+      <div
+        className={`mt-3 h-0.5 w-10 rounded-full sm:mt-4 sm:w-12 ${isCenter ? "mx-auto" : ""}`}
+        style={{ background: "#147414" }}
+      />
+
+      {/* Subtitle */}
+      {subtitle && (
+        <p
+          className={`mt-3 max-w-xl text-sm leading-relaxed sm:mt-4 sm:text-base ${isCenter ? "mx-auto" : ""}`}
+          style={{ color: "var(--color-muted-foreground)" }}
+        >
+          {subtitle}
+        </p>
+      )}
     </Reveal>
   );
 }
