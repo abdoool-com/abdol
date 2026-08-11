@@ -32,9 +32,21 @@ export function SiteHeader() {
           </span>
         </a>
 
-        <nav className="hidden items-center gap-7 text-sm font-medium text-muted-foreground md:flex">
+        <nav className="hidden items-center gap-7 text-sm font-medium text-muted-foreground lg:flex">
           <a className="transition-colors hover:text-primary" href="#services">
             خدماتنا
+          </a>
+          <a className="transition-colors hover:text-primary" href="#portfolio">
+            أعمالنا
+          </a>
+          <a className="transition-colors hover:text-primary" href="#process">
+            خطوات العمل
+          </a>
+          <a className="transition-colors hover:text-primary" href="#pricing">
+            الأسعار
+          </a>
+          <a className="transition-colors hover:text-primary" href="#testimonials">
+            آراء العملاء
           </a>
           <a className="transition-colors hover:text-primary" href="#about">
             من نحن
