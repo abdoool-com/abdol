@@ -17,7 +17,7 @@ export function TikTokBanner() {
                 src={tiktok.url}
                 alt="نشر اعلانك على تيك توك مجاناً"
                 loading="lazy"
-                className="animate-float-soft relative w-64 sm:w-80"
+                className="animate-float-soft relative w-64 mix-blend-multiply sm:w-80"
               />
             </div>
 

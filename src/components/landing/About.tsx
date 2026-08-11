@@ -15,7 +15,7 @@ export function About() {
               src={about.url}
               alt="فريق اعلانات عبدول"
               loading="lazy"
-              className="animate-float-soft relative w-72 sm:w-96"
+              className="animate-float-soft relative w-72 mix-blend-multiply sm:w-96"
             />
           </div>
         </Reveal>
