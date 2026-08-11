@@ -11,6 +11,8 @@ import { About } from "@/components/landing/About";
 import { TikTokBanner } from "@/components/landing/TikTokBanner";
 import { SiteFooter } from "@/components/landing/SiteFooter";
 import { FloatingWhatsApp } from "@/components/landing/FloatingWhatsApp";
+import { ScrollProgress } from "@/components/landing/ScrollProgress";
+
 
 const title = "اعلانات عبدول | حلول تسويقية تصنع الفرق";
 const description =
@@ -33,12 +35,15 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <div className="min-h-screen overflow-x-hidden scroll-smooth">
+      <ScrollProgress />
       <SiteHeader />
       <main>
         <Hero />
         <Services />
+        <div className="hairline mx-auto max-w-5xl" />
         <Portfolio />
         <Process />
+        <div className="hairline mx-auto max-w-5xl" />
         <Pricing />
         <Testimonials />
         <VisitorCounter />
@@ -50,3 +55,4 @@ function Index() {
     </div>
   );
 }
+

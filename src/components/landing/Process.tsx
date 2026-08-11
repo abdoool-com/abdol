@@ -34,12 +34,12 @@ export function Process() {
   return (
     <section id="process" className="relative py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5">
-        <Reveal className="text-center">
-          <h2 className="font-display text-3xl font-black text-primary sm:text-4xl">خطوات العمل</h2>
-          <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
-            رحلة واضحة من الاستشارة حتى النتائج
-          </p>
-        </Reveal>
+        <SectionHeading
+          eyebrow="كيف نعمل"
+          title="خطوات العمل"
+          subtitle="رحلة واضحة من الاستشارة حتى النتائج"
+        />
+
 
         <div className="mt-12 grid gap-6 md:grid-cols-4">
           {steps.map((step, index) => {
