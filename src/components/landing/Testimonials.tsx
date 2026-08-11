@@ -1,4 +1,6 @@
 import { Reveal } from "./Reveal";
+import { SectionHeading } from "./SectionHeading";
+
 import { Star, Quote } from "lucide-react";
 
 const testimonials = [
@@ -23,12 +25,12 @@ export function Testimonials() {
   return (
     <section id="testimonials" className="relative py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5">
-        <Reveal className="text-center">
-          <h2 className="font-display text-3xl font-black text-primary sm:text-4xl">آراء العملاء</h2>
-          <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
-            شهادات من عملائنا عن تجربتهم مع خدماتنا
-          </p>
-        </Reveal>
+        <SectionHeading
+          eyebrow="ثقة عملائنا"
+          title="آراء العملاء"
+          subtitle="شهادات من عملائنا عن تجربتهم مع خدماتنا"
+        />
+
 
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           {testimonials.map((item, index) => (

@@ -1,4 +1,6 @@
 import { Reveal } from "./Reveal";
+import { SectionHeading } from "./SectionHeading";
+
 import { MessageCircle, ClipboardList, Rocket, LineChart } from "lucide-react";
 
 const steps = [

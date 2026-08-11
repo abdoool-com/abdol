@@ -5,6 +5,8 @@ import campaigns from "@/assets/campaigns.png.asset.json";
 import plans from "@/assets/plans.png.asset.json";
 import stores from "@/assets/stores.png.asset.json";
 import { Reveal } from "./Reveal";
+import { SectionHeading } from "./SectionHeading";
+
 import { WHATSAPP_URL } from "./links";
 
 const services = [
@@ -20,12 +22,12 @@ export function Services() {
   return (
     <section id="services" className="relative py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5">
-        <Reveal className="text-center">
-          <h2 className="font-display text-3xl font-black text-primary sm:text-4xl">خدماتنا</h2>
-          <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
-            نقدم لك باقة متكاملة من الحلول التسويقية
-          </p>
-        </Reveal>
+        <SectionHeading
+          eyebrow="ما نقدمه"
+          title="خدماتنا"
+          subtitle="نقدم لك باقة متكاملة من الحلول التسويقية"
+        />
+
 
         <div className="mt-12 grid gap-5 md:grid-cols-4">
           {services.map((service, index) => (
