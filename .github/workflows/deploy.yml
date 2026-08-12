@@ -39,7 +39,7 @@ jobs:
         run: npm run build
         env:
           NODE_ENV: production
-          BASE_URL: /abdol/
+          BASE_URL: /
           NITRO_PRESET: node
 
       - name: Verify build output
@@ -80,7 +80,7 @@ jobs:
           mkdir -p .output/public
 
           curl -fsSL \
-            http://localhost:3456/abdol/ \
+            http://localhost:3456/ \
             -o .output/public/index.html
 
           echo "Creating GitHub Pages fallback..."
