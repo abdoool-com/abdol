@@ -5,9 +5,6 @@ import { WHATSAPP_URL } from "./links";
 
 const NAV_LINKS = [
   { href: "#services",     label: "خدماتنا" },
-  { href: "#portfolio",    label: "أعمالنا" },
-  { href: "#pricing",      label: "الأسعار" },
-  { href: "#testimonials", label: "آراء العملاء" },
   { href: "#about",        label: "من نحن" },
 ];
 

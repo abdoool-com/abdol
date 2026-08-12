@@ -2,10 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/landing/SiteHeader";
 import { Hero } from "@/components/landing/Hero";
 import { Services } from "@/components/landing/Services";
-import { Portfolio } from "@/components/landing/Portfolio";
 import { Process } from "@/components/landing/Process";
-import { Pricing } from "@/components/landing/Pricing";
-import { Testimonials } from "@/components/landing/Testimonials";
 import { VisitorCounter } from "@/components/landing/VisitorCounter";
 import { About } from "@/components/landing/About";
 import { TikTokBanner } from "@/components/landing/TikTokBanner";
@@ -40,12 +37,8 @@ function Index() {
       <main>
         <Hero />
         <Services />
-        <div className="hairline mx-auto max-w-5xl" />
-        <Portfolio />
         <Process />
         <div className="hairline mx-auto max-w-5xl" />
-        <Pricing />
-        <Testimonials />
         <VisitorCounter />
         <About />
         <TikTokBanner />

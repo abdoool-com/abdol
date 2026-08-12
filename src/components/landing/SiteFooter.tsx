@@ -16,9 +16,6 @@ const NAV_COLS = [
   {
     title: "الموقع",
     links: [
-      { label: "أعمالنا",       href: "#portfolio" },
-      { label: "الأسعار",       href: "#pricing" },
-      { label: "آراء العملاء",  href: "#testimonials" },
       { label: "من نحن",        href: "#about" },
       { label: "تيك توك مجاناً", href: "#tiktok" },
     ],

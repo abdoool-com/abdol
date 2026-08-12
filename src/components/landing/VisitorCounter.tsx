@@ -1,8 +1,40 @@
+import { useState, useEffect } from "react";
 import { useCountUp } from "@/hooks/use-reveal";
 import { Reveal } from "./Reveal";
 
 export function VisitorCounter() {
-  const { ref, value } = useCountUp(48200);
+  const [target, setTarget] = useState(48200);
+  const [liveCount, setLiveCount] = useState(48200);
+
+  useEffect(() => {
+    const baseDate = new Date("2024-01-01").getTime();
+    const now = Date.now();
+    const minutesElapsed = Math.floor((now - baseDate) / 60000);
+    let dynamicCount = 48200 + Math.floor(minutesElapsed / 45);
+
+    const hasVisited = localStorage.getItem("hasVisited");
+    if (!hasVisited) {
+      dynamicCount += 1;
+      localStorage.setItem("hasVisited", "true");
+    }
+    
+    setTarget(dynamicCount);
+    setLiveCount(dynamicCount);
+
+    // Simulate live visitors arriving while the user is on the page
+    const interval = setInterval(() => {
+      if (Math.random() > 0.4) {
+        setLiveCount(prev => prev + 1);
+      }
+    }, 4500);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const { ref, value } = useCountUp(target);
+
+  // Use the animated value until it finishes, then switch to the live updating count
+  const displayValue = value >= target ? liveCount : value;
 
   return (
     <section className="py-14">
@@ -20,7 +52,7 @@ export function VisitorCounter() {
               عدد زوار الموقع
             </p>
             <p className="relative mt-3 font-display text-5xl font-black text-primary-foreground sm:text-6xl">
-              <span ref={ref}>{value.toLocaleString("en-US")}</span>
+              <span ref={ref}>{displayValue.toLocaleString("en-US")}</span>
             </p>
             <p className="relative mt-3 text-sm text-primary-foreground/75">
               نمو مستمر في مراتب الظهور والوصول
