@@ -4,37 +4,22 @@ import { Reveal } from "./Reveal";
 
 export function VisitorCounter() {
   const [target, setTarget] = useState(48200);
-  const [liveCount, setLiveCount] = useState(48200);
 
   useEffect(() => {
-    const baseDate = new Date("2024-01-01").getTime();
-    const now = Date.now();
-    const minutesElapsed = Math.floor((now - baseDate) / 60000);
-    let dynamicCount = 48200 + Math.floor(minutesElapsed / 45);
+    let count = 48200;
 
     const hasVisited = localStorage.getItem("hasVisited");
     if (!hasVisited) {
-      dynamicCount += 1;
+      count += 1;
       localStorage.setItem("hasVisited", "true");
     }
     
-    setTarget(dynamicCount);
-    setLiveCount(dynamicCount);
-
-    // Simulate live visitors arriving while the user is on the page
-    const interval = setInterval(() => {
-      if (Math.random() > 0.4) {
-        setLiveCount(prev => prev + 1);
-      }
-    }, 4500);
-
-    return () => clearInterval(interval);
+    setTarget(count);
   }, []);
 
   const { ref, value } = useCountUp(target);
 
-  // Use the animated value until it finishes, then switch to the live updating count
-  const displayValue = value >= target ? liveCount : value;
+  const displayValue = value;
 
   return (
     <section className="py-14">
