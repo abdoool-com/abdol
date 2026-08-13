@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/لوجو اعلانات عبدول.jpeg";
 import { WHATSAPP_URL } from "./links";
+import { trackEvent } from "@/lib/analytics";
 
 const NAV_LINKS = [
   { href: "#services",     label: "خدماتنا" },
@@ -92,6 +93,7 @@ export function SiteHeader() {
             <a
               key={link.href}
               href={link.href}
+              onClick={() => trackEvent("click_nav", { link: link.label })}
               data-active={active === link.href}
               className="nav-link text-sm"
             >
@@ -101,6 +103,7 @@ export function SiteHeader() {
           {/* TikTok promo */}
           <a
             href="#tiktok"
+            onClick={() => trackEvent("click_tiktok", { location: "header_desktop" })}
             className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold transition-all duration-200 hover:-translate-y-0.5"
             style={{ background: "#FFF8DF", color: "#a07c00", border: "1px solid #e8d068" }}
           >
@@ -117,6 +120,7 @@ export function SiteHeader() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackEvent("click_whatsapp", { location: "header_desktop" })}
             className="hidden items-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 sm:inline-flex"
             style={{ background: "var(--gradient-green)", boxShadow: "0 4px 16px rgba(20,116,20,0.28)" }}
           >
@@ -130,6 +134,7 @@ export function SiteHeader() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="تواصل معنا"
+            onClick={() => trackEvent("click_whatsapp", { location: "header_mobile_icon" })}
             className="flex h-9 w-9 items-center justify-center rounded-xl text-white sm:hidden"
             style={{ background: "var(--gradient-green)" }}
           >
@@ -161,7 +166,7 @@ export function SiteHeader() {
             <a
               key={link.href}
               href={link.href}
-              onClick={() => setOpen(false)}
+              onClick={() => { setOpen(false); trackEvent("click_nav", { link: link.label }); }}
               className="min-h-[44px] flex items-center rounded-xl px-4 py-3 text-sm font-medium transition-colors hover:bg-[#EFF7F0]"
               style={{ color: "#142018" }}
             >
@@ -170,7 +175,7 @@ export function SiteHeader() {
           ))}
           <a
             href="#tiktok"
-            onClick={() => setOpen(false)}
+            onClick={() => { setOpen(false); trackEvent("click_tiktok", { location: "header_mobile" }); }}
             className="min-h-[44px] flex items-center rounded-xl px-4 py-3 text-sm font-semibold"
             style={{ color: "#a07c00", background: "#FFF8DF" }}
           >
@@ -180,6 +185,7 @@ export function SiteHeader() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackEvent("click_whatsapp", { location: "header_drawer" })}
             className="mt-2 flex min-h-[44px] items-center justify-center gap-2 rounded-xl px-4 py-3 font-semibold text-white"
             style={{ background: "var(--gradient-green)" }}
           >

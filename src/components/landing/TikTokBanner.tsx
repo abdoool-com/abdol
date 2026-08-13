@@ -2,6 +2,7 @@ import { useState } from "react";
 import tiktok from "@/assets/نشر اعلانك على تيك توك مجانا.png";
 import { Reveal } from "./Reveal";
 import { TIKTOK_URL, WHATSAPP_URL } from "./links";
+import { trackEvent } from "@/lib/analytics";
 
 function TikTokImage() {
   const [failed, setFailed] = useState(false);
@@ -61,11 +62,13 @@ export function TikTokBanner() {
 
               <div className="mt-6 flex flex-col gap-3 sm:mt-7 sm:flex-row sm:flex-wrap sm:justify-center md:justify-start">
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"
+                  onClick={() => trackEvent("click_whatsapp", { location: "tiktok_banner" })}
                   className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl px-6 py-3 text-sm font-bold text-white transition-all duration-200 hover:-translate-y-0.5"
                   style={{ background: "linear-gradient(135deg, #b8940e 0%, #D0A914 100%)", boxShadow: "0 8px 24px rgba(208,169,20,0.35)" }}>
                   أرسل عبر واتساب
                 </a>
                 <a href={TIKTOK_URL} target="_blank" rel="noopener noreferrer"
+                  onClick={() => trackEvent("click_tiktok", { location: "tiktok_banner" })}
                   className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl border px-6 py-3 text-sm font-bold transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#FFF8DF]"
                   style={{ borderColor: "rgba(208,169,20,0.4)", color: "#9a6f00" }}>
                   حسابنا على تيك توك

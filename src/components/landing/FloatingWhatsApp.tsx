@@ -1,4 +1,5 @@
 import { WHATSAPP_URL } from "./links";
+import { trackEvent } from "@/lib/analytics";
 
 const WA_ICON = (
   <svg viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6">
@@ -13,6 +14,7 @@ export function FloatingWhatsApp() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="تواصل معنا على واتساب"
+      onClick={() => trackEvent("click_whatsapp", { location: "floating" })}
       className="group fixed bottom-6 left-6 z-50 flex h-14 w-14 items-center justify-center rounded-full text-white transition-transform duration-300 hover:scale-110"
       style={{
         background: "var(--gradient-green)",

@@ -9,6 +9,7 @@ import stores    from "@/assets/إدارة المتاجر.png";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
 import { WHATSAPP_URL } from "./links";
+import { trackEvent } from "@/lib/analytics";
 
 const SERVICES = [
   { num: "01", title: "التسويق الرقمي",        description: "حملات رقمية مدروسة تستهدف جمهورك المثالي وتحقق أقصى عائد على الاستثمار.", img: digital,   Icon: Monitor,       featured: true  },
@@ -82,6 +83,7 @@ function ServiceCard({ service, large }: { service: typeof SERVICES[0]; large: b
           {service.description}
         </p>
         <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"
+          onClick={() => trackEvent("click_whatsapp", { location: "services", service: service.title })}
           className="inline-flex items-center gap-1.5 text-sm font-semibold transition-colors duration-200"
           style={{ color: "#147414" }}>
           اكتشف المزيد

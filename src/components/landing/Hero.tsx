@@ -3,6 +3,7 @@ import { ChevronLeft, ArrowUpLeft } from "lucide-react";
 import logo from "@/assets/لوجو اعلانات عبدول.jpeg";
 import { WHATSAPP_URL, TIKTOK_URL } from "./links";
 import { Reveal } from "./Reveal";
+import { trackEvent } from "@/lib/analytics";
 
 /* ─── Orbital Logo Composition ─── */
 function HeroVisual() {
@@ -132,11 +133,13 @@ export function Hero() {
               {/* CTAs */}
               <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap">
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"
+                  onClick={() => trackEvent("click_whatsapp", { location: "hero" })}
                   className="btn-primary justify-center text-sm sm:justify-start">
                   اطلب خدمتك الآن
                   <ChevronLeft className="h-4 w-4" />
                 </a>
                 <a href={TIKTOK_URL} target="_blank" rel="noopener noreferrer"
+                  onClick={() => trackEvent("click_tiktok", { location: "hero" })}
                   className="btn-outline justify-center text-sm sm:justify-start">
                   نشر إعلانك مجاناً
                   <ArrowUpLeft className="h-4 w-4" />
