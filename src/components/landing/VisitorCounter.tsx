@@ -39,9 +39,6 @@ export function VisitorCounter() {
             <p className="relative mt-3 font-display text-5xl font-black text-primary-foreground sm:text-6xl">
               <span ref={ref}>{displayValue.toLocaleString("en-US")}</span>
             </p>
-            <p className="relative mt-3 text-sm text-primary-foreground/75">
-              نمو مستمر في مراتب الظهور والوصول
-            </p>
           </div>
         </Reveal>
       </div>
