@@ -82,7 +82,7 @@ export function SiteHeader() {
               اعلانات عبدول
             </span>
             <span className="hidden text-[11px] sm:block" style={{ color: "#68736B" }}>
-              e.elads.com
+
             </span>
           </div>
         </a>

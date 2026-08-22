@@ -25,7 +25,7 @@ const NAV_COLS = [
     links: [
       { label: "واتساب",    href: WHATSAPP_URL, external: true },
       { label: "تيك توك",   href: TIKTOK_URL,   external: true },
-      { label: "e.elads.com", href: "#top"                     },
+      { label: "", href: "#top"                     },
     ],
   },
 ];
@@ -59,7 +59,7 @@ export function SiteFooter() {
                   style={{ fontFamily: "IBM Plex Sans Arabic, Cairo, sans-serif" }}>
                   اعلانات عبدول
                 </p>
-                <p className="text-xs" style={{ color: "rgba(255,255,255,0.55)" }}>e.elads.com</p>
+                <p className="text-xs" style={{ color: "rgba(255,255,255,0.55)" }}></p>
               </div>
             </div>
 
